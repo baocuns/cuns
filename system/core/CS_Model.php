@@ -8,6 +8,10 @@
  * @filesource  system/core/CS_Model.php
  */
 
+ /**
+ * file này chưa cần dùng đến : chú thích từ cuns
+ */
+
 class CS_Model
 {
     //doi tuong
@@ -35,3 +39,7 @@ class CS_Model
         }
     }
 }
+
+/**
+ * file này chưa cần dùng đến : chú thích từ cuns
+ */
