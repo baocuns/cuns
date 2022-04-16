@@ -1,5 +1,5 @@
-<?php if ( ! defined('PATH_SYSTEM')) die ('Bad requested!');
- 
+<?php if (!defined('PATH_SYSTEM')) die('Bad requested!');
+
 class Login_Controller extends Base_Controller
 {
     public function indexAction()
@@ -9,10 +9,10 @@ class Login_Controller extends Base_Controller
     //login
     public function loginAction()
     {
-        if (isset($_POST['email'])) {
+        if (!isset($_REQUEST['email'])) {
             die('không tìm thấy email');
         }
-        if (isset($_POST['password'])) {
+        if (!isset($_REQUEST['password'])) {
             die('không tìm thấy password');
         }
 
@@ -22,7 +22,6 @@ class Login_Controller extends Base_Controller
         );
 
         $this->model->load('account');
-        $this->model->account->upload();
-        //$this->model->load('account', 'login') == true ? $this->view->load('view', $data) : $this->view->load('login');
+        $this->model->account->login($_POST['email'], $_POST['password']) == true ? $this->view->load('view', $data) : $this->view->load('login');
     }
 }

@@ -31,14 +31,15 @@
             <div class="col-md-3">
                 <div class="login">
                     <h3>Login</h3>
-                    <form class="row g-3" action="?c=login" method="POST">
+                    <form class="row g-3" action="" method="POST">
                         <div class="col-md-12">
+                            <input type="text" name="a" value="login" hidden>
                             <label for="inputEmail4" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="inputEmail4">
+                            <input type="email" name="email" class="form-control" id="inputEmail4">
                         </div>
                         <div class="col-md-12">
                             <label for="inputPassword4" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="inputPassword4">
+                            <input type="password" name="password" class="form-control" id="inputPassword4">
                         </div>
                         <div class="col-12">
                             <div class="form-check">

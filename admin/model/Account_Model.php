@@ -1,6 +1,7 @@
 <?php if ( ! defined('PATH_APPLICATION')) die ('Bad requested!');
 
 class Account_Model extends Database {
+
     //login
     public function login($email, $password)
     {
@@ -13,13 +14,18 @@ class Account_Model extends Database {
         // if (password_verify($password, $user[0]['user_password'])) {
         //     return true;
         // }
+
+        //kiểm tra tài khoản có tồn tại không.
+        if (empty($user)) {
+            return false;
+        }
         if ($password == $user[0]['user_password']) {
             return true;
         }
         return false;
     }
-    public function upload()
+    public function test()
     {
-        echo '<h3>Method Upload được gọi tới</h3>';
+        return true;
     }
 }

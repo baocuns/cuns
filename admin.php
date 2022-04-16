@@ -13,5 +13,3 @@ include_once PATH_SYSTEM . '/core/CS_Common.php';
 
 // Chương trình chính
 CS_load();
-
-?>

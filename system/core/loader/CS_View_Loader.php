@@ -27,7 +27,6 @@ class CS_View_Loader
     {
         // Chuyển mảng dữ liệu thành từng biến
         extract($data);
-         
         // Chuyển nội dung view thành biến thay vì in ra bằng cách dùng ab_start()
         ob_start();
         require_once PATH_APPLICATION . '/view/' . $view . '.php';

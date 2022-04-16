@@ -8,17 +8,30 @@
  * @filesource  system/core/CS_Model.php
  */
 
- class CS_Model {
-     //doi tuong
-     protected $model = null;
+class CS_Model
+{
+    //doi tuong
+    protected $model = null;
 
-     /**
+    /**
      * Hàm khởi tạo
      * 
      * @desc    Load các thư viện cần thiết
      */
     function __construct()
     {
-        
     }
- }
+    //load model
+    function CS_Model_Load($model, $action)
+    {
+        // Chuyển đổi tên model vì nó có định dạng là {Name}_Model
+        $model = ucfirst(strtolower($model)) . '_Model';
+        // chuyển đổi tên action vì nó có định dạng {name}Action
+        $action = strtolower($action) . 'Action';
+
+        // Kiểm tra file model có tồn tại hay không
+        if (!file_exists(PATH_APPLICATION . '/model/' . $model . '.php')) {
+            die('Không tìm thấy model');
+        }
+    }
+}

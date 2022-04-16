@@ -11,8 +11,8 @@ function CS_load()
     $controller = empty($_GET['c']) ? $config['default_controller'] : $_GET['c'];
 
     // Nếu không truyền action thì lấy action mặc định 
-    $action = empty($_GET['a']) ? $config['default_action'] : $_GET['a'];
-
+    $action = empty($_REQUEST['a']) ? $config['default_action'] : $_REQUEST['a'];
+    
     // Chuyển đổi tên controller vì nó có định dạng là {Name}_Controller
     $controller = ucfirst(strtolower($controller)) . '_Controller';
 
@@ -48,19 +48,7 @@ function CS_load()
         die('Không tìm thấy action');
     }
 
+    
     // Chạy ứng dụng
     $controllerObject->{$action}();
-}
-
-//load model
-function CS_Model_Load($model, $action) {
-    // Chuyển đổi tên model vì nó có định dạng là {Name}_Model
-    $model = ucfirst(strtolower($model)) . '_Model';
-    // chuyển đổi tên action vì nó có định dạng {name}Action
-    $action = strtolower($action) . 'Action';
-
-    // Kiểm tra file model có tồn tại hay không
-    if (!file_exists(PATH_APPLICATION . '/model/' . $model . '.php')) {
-        die('Không tìm thấy model');
-    }
 }
