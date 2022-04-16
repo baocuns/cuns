@@ -25,9 +25,7 @@ class CS_Library_Loader
         {
             // Chuyển chữ hoa đầu và thêm hậu tố _Library
             $class = ucfirst($library) . '_Library';
-
             require_once(PATH_SYSTEM . '/library/' . $class . '.php');
-            
             $this->{$library} = new $class($agrs);
         }
     }
