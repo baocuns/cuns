@@ -8,6 +8,10 @@
  * @filesource  system/core/CS_Model.php
  */
 
+/**
+ * file nay chua can thiet: cuns
+ */
+
 class CS_Model
 {
     //doi tuong
@@ -35,3 +39,7 @@ class CS_Model
         }
     }
 }
+
+/**
+ * file nay chua can thiet: cuns
+ */

@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cun's</title>
-</head>
-<body>
-    
-</body>
-</html>
+<?php
+ 
+// Đường dẫn tới hệ  thống
+define('PATH_SYSTEM', __DIR__ .'/system');
+define('PATH_APPLICATION', __DIR__ . '/admin');
+define('PATH_PUBLIC', '/public');
+ 
+// Lấy thông số cấu hình
+require (PATH_SYSTEM . '/config/config.php');
+ 
+//mở file CS_Common.php, file này chứa hàm CS_Load() chạy hệ thống
+include_once PATH_SYSTEM . '/core/CS_Common.php';
+
+// Chương trình chính
+CS_load();
