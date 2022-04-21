@@ -45,12 +45,13 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="gridCheck">
                                 <label class="form-check-label" for="gridCheck">
-                                    Check me out
+                                    Remember me
                                 </label>
                             </div>
                         </div>
+
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary">Sign in</button>
+                            <button type="submit" class="btn btn-primary">Login</button>
                         </div>
                     </form>
                 </div>
@@ -60,6 +61,9 @@
 
     <!-- js -->
     <script src="public/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+    </script>
 </body>
 
 </html>
