@@ -12,6 +12,12 @@ class Signup_Controller extends Base_Controller
         $this->library->load('sendmail');
 
         // Gọi đến phương thức upload
-        $this->library->sendmail->sendmail();
+        $result = $this->library->sendmail->sendmail();
+        if ($result) {
+            echo 'thanh cong';
+        }
+        else {
+            echo 'that bai';
+        }
     }
 }

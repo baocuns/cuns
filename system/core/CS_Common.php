@@ -8,11 +8,18 @@ function CS_load()
     $config = include_once PATH_APPLICATION . '/config/init.php';
 
     // Nếu không truyền controller thì lấy controller mặc định
+    
+
     $controller = empty($_GET['c']) ? $config['default_controller'] : $_GET['c'];
 
     // Nếu không truyền action thì lấy action mặc định 
     $action = empty($_REQUEST['a']) ? $config['default_action'] : $_REQUEST['a'];
     
+    // $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+    // var_dump($actual_link);
+    // var_dump($_GET['c']);
+    // var_dump($_REQUEST['a']);
+    // exit;
     // Chuyển đổi tên controller vì nó có định dạng là {Name}_Controller
     $controller = ucfirst(strtolower($controller)) . '_Controller';
 

@@ -57,7 +57,6 @@
                     <div class="intro-signup"></div><br>
                     <form class="row g-3" action="" method="POST">
                         <div class="col-md-12">
-                            <input type="text" name="a" value="login" hidden>
                             <label for="input-email" class="form-label"><b id="label-email"></b></label>
                             <div class="row">
                                 <div class="col-md-2"></div>
@@ -65,13 +64,10 @@
                                     <input type="email" tabindex="1" name="email" class="form-control" id="input-email">
                                 </div>
                             </div>
-
+                            <input type="text" name="a" value="sendmail" hidden>
                         </div>
-
-
                         <div class="col-12">
                             <button type="submit" class="btn btn-outline-info continue">Continue</button>
-                            <a href="?c=signup&a=sendmail">sendmail</a>
                         </div>
                     </form>
                 </div>

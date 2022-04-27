@@ -7,7 +7,7 @@ class Sendmail_Library
     }
     public function sendmail()
     {
-        $to      = '20211tt0723@mail.tdc.edu.vn';
+        $to      = $_REQUEST['email'];
         $subject = 'the subject';
         $message = 'hello';
         $headers = 'From: baonv.23.student@fit.tdc.edu.vn\n';
