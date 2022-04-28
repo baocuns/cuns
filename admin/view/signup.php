@@ -61,6 +61,9 @@
                     <div class="alert alert-danger d-none" id="alert" role="alert">
                         Password and re-enter password may be different !
                     </div>
+                    <div class="alert alert-warning d-none" id="alert-email" role="alert">
+                        A simple warning alert—check email empty!
+                    </div>
                     <form class="row g-3 form-signup" action="" method="POST">
                         <input type="text" name="a" value="sendmail" hidden>
                         <div id="form-signup">
@@ -71,6 +74,20 @@
                                     <div class="col-md-10">
                                         <input type="email" tabindex="1" name="email" class="form-control" id="input-email" />
                                     </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-none" id="password">
+                                <label for="input-password" class="form-label"><b id="label-password"></b></label>
+                                <div class="row">
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-10"> <input type="password" tabindex="1" name="password" class="form-control" id="input-password" /> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-none" id="repassword">
+                                <label for="input-repassword" class="form-label"><b id="label-repassword"></b></label>
+                                <div class="row">
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-10"> <input type="password" tabindex="1" class="form-control" id="input-repassword" /> </div>
                                 </div>
                             </div>
                         </div>
@@ -93,6 +110,7 @@
 
         str = 'Welcome to Cuns! Let’s begin the adventure';
         str2 = 'Enter your email';
+
         i = 0;
         setTimeout(function textIntro() {
             Intro.innerHTML += str[i];
@@ -109,14 +127,20 @@
             }
         }, 30);
         // event click
-        let str_password = ['<div class="col-md-12"> <label for="input-password" class="form-label"><b id="label-password"></b></label> <div class="row"> <div class="col-md-2"></div> <div class="col-md-10"> <input type="password" tabindex="1" name="password" class="form-control" id="input-password"/> </div> </div> </div>', '<div class="col-md-12"> <label for="input-repassword" class="form-label"><b id="label-repassword"></b></label> <div class="row"> <div class="col-md-2"></div> <div class="col-md-10"> <input type="password" tabindex="1" class="form-control" id="input-repassword"/> </div> </div> </div>'];
 
         k = 0;
         btnContinue.addEventListener('click', function() {
-            let email = document.querySelector('#input-email').value;
+            // email
+            if (document.querySelector('#input-email').value == '') {
+                document.querySelector('#alert-email').classList.remove('d-none');
+                return;
+            }
+            else {
+                document.querySelector('#alert-email').classList.add('d-none');
+            }
+
             if (k == 0) {
-                FormSignup.innerHTML += str_password[k];
-                document.querySelector('#input-email').value = email;
+                document.querySelector('#password').classList.remove('d-none');
                 const LablePassword = document.querySelector('#label-password');
                 str = 'Enter your Password';
                 j = 0;
@@ -127,10 +151,7 @@
                 }, 30);
             }
             if (k == 1) {
-                let password = document.querySelector('#input-password').value;
-                FormSignup.innerHTML += str_password[k];
-                document.querySelector('#input-email').value = email;
-                document.querySelector('#input-password').value = password;
+                document.querySelector('#repassword').classList.remove('d-none');
                 const LablePassword = document.querySelector('#label-repassword');
                 str = 'Enter your Re - Password';
                 j = 0;
@@ -141,10 +162,15 @@
                 }, 30);
             }
             k++;
-            if (document.querySelector('#input-repassword').value === document.querySelector('#input-password').value) {
-                btnContinue.type = 'submit';
-            } else if(document.querySelector('#input-repassword').value != '') {
-                document.querySelector('#alert').classList.remove('d-none');
+
+            let pass = document.querySelector('#input-repassword').value;
+            let repass = document.querySelector('#input-password').value
+            if (pass != '' && repass != '') {
+                if (pass != repass) {
+                    document.querySelector('#alert').classList.remove('d-none');
+                } else {
+                    btnContinue.type = 'submit';
+                }
             }
         })
     </script>
